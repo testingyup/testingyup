@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referrer Tracking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Referrer Tracking</h1>
+        <p id="referrer-info">Checking referrer...</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get the referrer from the browser
+            var referrer = document.referrer;
+            
+            if (referrer) {
+                document.getElementById('referrer-info').innerText = "You came from: " + referrer;
+                console.log("Referrer:", referrer);
+            } else {
+                document.getElementById('referrer-info').innerText = "No referrer detected.";
+                console.log("No referrer detected.");
+            }
+        });
+    </script>
+</body>
+</html>
