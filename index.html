@@ -40,6 +40,24 @@
                 document.getElementById('referrer-info').innerText = "No referrer detected.";
                 console.log("No referrer detected.");
             }
+
+            // Variables to track tab focus and timing
+            var hasTabBlurred = false;
+            var blurTimer;
+
+            // Listen for the tab losing focus (blur event)
+            window.addEventListener('blur', function() {
+                // Set a timer to redirect after 10 seconds of being out of focus
+                blurTimer = setTimeout(function() {
+                    window.location.href = "https://www.google.com"; // Redirect to Google after 10 seconds
+                }, 10000); // 10000 milliseconds = 10 seconds
+            });
+
+            // Listen for the tab regaining focus (focus event)
+            window.addEventListener('focus', function() {
+                // Clear the timer if the user comes back to the tab before 10 seconds
+                clearTimeout(blurTimer);
+            });
         });
     </script>
 </body>
